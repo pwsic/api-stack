@@ -24,7 +24,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(utilsInstance.auth);
+//app.use(utilsInstance.auth);
+
+const db = require('./models/connection')();
 
 app.use('/', routes);
 app.use('/customers', require('./routes/customers'));
